@@ -1,11 +1,28 @@
 <template lang="pug">
-  .test テスト
+  .TopPage-SignUpPromptingLinkAndNewestImportantNotificationGroup
+      .TopPage-SignUpPromptingLink(
+        v-if="false"
+      )
+
+      .TopPage-NewestImportantNotification--LoadingPlaceholder(
+        v-if="hasNewestImportantNotificationNotBeenRetrievedYet"
+        :class="[ hasUserNotSignedIn ?\
+          'TopPage-NewestImportantNotification__HalfWidthOnWidthScreens' : 'TopPage-NewestImportantNotification__Responsive'\
+        ]"
+      )
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data() {
+    return {
+      hasUserNotSignedIn: false,
+      hasNewestImportantNotificationNotBeenRetrievedYet: false
+    }
+  }
+})
 </script>
 
 <style>
